@@ -1,4 +1,4 @@
-import { EchoRadar, wrapEcho, BatWings } from './index';
+import { EchoRadar, wrapEcho, BatWings, Instinct } from './index';
 import { Fangs, Channel } from './fangs';
 
 const types = ['chat', 'heavy', 'critical', 'echo', 'file', 'system'];
@@ -30,6 +30,18 @@ function formatError(err: unknown): string | undefined {
 }
 
 async function demoFangs() {
+  // demonstrate Instinct first
+  const instinct = new Instinct({
+    defaults: { A11_PATH: 'D:/A11', API_TOKEN: 'DEV_TOKEN' },
+    config: { API_HOST: 'api.funesterie.me' }
+  });
+
+  const sampleCmd = 'start-server --path={A11_PATH} --host={API_HOST} --token={API_TOKEN}';
+  console.log('Slots detected:', instinct.detectSlots(sampleCmd));
+  const filled = instinct.fill(sampleCmd);
+  console.log('Filled command:', filled.cmd);
+  if (filled.missing.length) console.log('Missing slots:', filled.missing);
+
   const channels: Channel[] = [
     { id: 'local', kind: 'local', endpoint: 'http://127.0.0.1:3000', weight: 2, stats: { rttAvg: 300, errors: 0, inFlight: 0 } },
     { id: 'tunnel', kind: 'proxy', endpoint: 'https://api.funesterie.me', weight: 1, stats: { rttAvg: 800, errors: 0, inFlight: 0 } }

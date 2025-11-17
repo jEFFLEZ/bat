@@ -245,5 +245,6 @@ export { Memory } from './memory';
 export { Hormones } from './hormones';
 export { Immune } from './immune';
 export { Sleep } from './sleep';
+export { Instinct } from './instinct';
 export * from './types';
 export * from './profiles';
