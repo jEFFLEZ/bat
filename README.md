@@ -1,21 +1,51 @@
-# funeste38/bat
+# @funeste38/bat
 
-Monorepo contenant le package `@funeste38/bat`.
+`bat` is the adaptive request-control family for Funesterie.
 
-Badge npm (package):
+It models network or tool execution like a small reactive organism: it listens, classifies, adapts, retries carefully and learns which channels are worth trusting.
 
 [![npm version](https://img.shields.io/npm/v/@funeste38/bat.svg)](https://www.npmjs.com/package/@funeste38/bat)
-
-CI status:
-
 [![CI](https://github.com/jEFFLEZ/bat/actions/workflows/publish.yml/badge.svg)](https://github.com/jEFFLEZ/bat/actions)
 
-Structure
+## Repository layout
 
-- packages/bat - le package principal
-- packages/bat-system - version expérimentale complète
+- `packages/bat` contains the npm package
+- `packages/bat-system` contains related system primitives
+- the repo root is currently a lightweight wrapper around the published package
 
-Usage
+## Core concepts
 
-- Installer : `npm install @funeste38/bat`
-- Voir demo : `packages/bat/src/demo.ts`
+- `Bat`: sonar and signal measurement
+- `Ears`: response analysis and noise filtering
+- `Wings`: adaptive behaviour such as retries, pacing and cooldown
+- `Fangs`: multi-channel execution and channel rotation
+- `Inversion`: fallback behaviour when the main strategy should be bypassed
+- `Heart`, `Memory`, `Hormones`, `Immune`, `Sleep`: state and resilience helpers
+
+## Quick example
+
+```ts
+import { Bat, Ears, Wings, Fangs } from "@funeste38/bat";
+
+const bat = new Bat();
+const ears = new Ears();
+const wings = new Wings();
+const fangs = new Fangs({ channels: [] });
+```
+
+## What this package is good at
+
+- adaptive request orchestration
+- experimentation with parallel or rotating channels
+- local assistant runtimes that need resilience without heavyweight infrastructure
+
+## Good next improvements
+
+- formal metrics output for every adaptive decision
+- richer presets for HTTP, tunnel and LLM workloads
+- clearer channel health scoring
+- integration examples with QFLUSH and Spyder
+
+## Package docs
+
+See [packages/bat/README.md](./packages/bat/README.md) for package-level usage.
