@@ -1,9 +1,16 @@
 {
   "name": "@funeste38/bat",
-  "version": "0.1.0",
-  "description": "Adaptive request controller inspired by bats: sonar, ears, wings, fangs, inversion, heart, immune system.",
+  "version": "1.0.2",
+  "description": "Adaptive request-control primitives for resilient network, tool and AI orchestration.",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
+  "files": [
+    "dist",
+    "src",
+    "test",
+    "README.md",
+    "tsconfig.json"
+  ],
   "scripts": {
     "build": "tsc -p tsconfig.json",
     "dev": "ts-node src/demo.ts",
@@ -24,6 +31,17 @@
   ],
   "author": "funeste38",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jEFFLEZ/bat.git"
+  },
+  "bugs": {
+    "url": "https://github.com/jEFFLEZ/bat/issues"
+  },
+  "homepage": "https://github.com/jEFFLEZ/bat#readme",
+  "publishConfig": {
+    "access": "public"
+  },
   "devDependencies": {
     "typescript": "^5.6.0",
     "ts-node": "^10.9.2",
