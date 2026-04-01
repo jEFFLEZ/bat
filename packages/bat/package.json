@@ -1,6 +1,6 @@
 {
   "name": "@funeste38/bat",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Adaptive request-control primitives for resilient network, tool and AI orchestration.",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
