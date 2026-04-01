@@ -1,5 +1,4 @@
-import { EchoRadar, BatWings } from '../index';
-import { Fangs, Channel } from '../fangs';
+import { EchoRadar, BatWings, Fangs, Channel } from '../index';
 
 export interface SpyderBridge {
   askA11Raw: (channel: Channel, text: string) => Promise<any>;

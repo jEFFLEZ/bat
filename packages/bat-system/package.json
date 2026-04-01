@@ -1,7 +1,7 @@
 {
   "name": "@funeste38/bat-system",
   "version": "0.1.0",
-  "description": "BAT-SYSTEM: sonar + ears + wings + fangs + inversion — adaptive request orchestration",
+  "description": "BAT-SYSTEM legacy compatibility primitives for adaptive request orchestration",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {

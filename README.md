@@ -9,9 +9,15 @@ It models network or tool execution like a small reactive organism: it listens, 
 
 ## Repository layout
 
-- `packages/bat` contains the npm package
-- `packages/bat-system` contains related system primitives
+- `packages/bat` is the canonical npm package and the public source of truth
+- `packages/bat-system` is a legacy/internal primitive set kept for compatibility and archaeology
 - the repo root is currently a lightweight wrapper around the published package
+
+## Canonical source of truth
+
+If a runtime or adapter has to choose between the two trees, prefer `packages/bat`.
+
+`packages/bat-system` still exists because it contains the older naming family (`BatEars`, `BatFangs`, etc.), but new integrations should not mix imports across both trees in the same file.
 
 ## Core concepts
 
