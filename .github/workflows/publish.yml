@@ -4,6 +4,7 @@ on:
   push:
     branches: [ main ]
     tags: [ 'v*' ]
+  workflow_dispatch:
 
 jobs:
   build:
@@ -14,7 +15,7 @@ jobs:
       - name: Use Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 18
+          node-version: 20
       - name: Install
         run: npm ci
         working-directory: ./packages/bat
@@ -29,13 +30,13 @@ jobs:
     name: Publish to npm
     needs: build
     runs-on: ubuntu-latest
-    if: startsWith(github.ref, 'refs/tags/v') || github.ref == 'refs/heads/main'
+    if: startsWith(github.ref, 'refs/tags/v') && secrets.NPM_TOKEN != ''
     steps:
       - uses: actions/checkout@v4
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
-          node-version: 18
+          node-version: 20
           registry-url: https://registry.npmjs.org/
       - name: Install
         run: npm ci
@@ -49,4 +50,3 @@ jobs:
         run: |
           cd packages/bat
           npm publish --access public
-        # ensure NPM_TOKEN secret is configured in repository settings
